@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context="cs.b07.cscb07courseproject.SearchActivity">
+
+    <RadioGroup
+        android:id="@+id/search_bar"
+        app:layout_scrollFlags="scroll|exitUntilCollapsed"
+        android:fitsSystemWindows="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="12dp"
+        android:orientation="vertical">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Origin"
+                android:inputType="textCapWords"
+                android:id="@+id/editTextSearchOrigin"
+                />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Destination"
+                android:inputType="textCapWords"
+                android:id="@+id/editTextSearchDestination"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint=" Select your departure date:"
+                android:textSize="17.5dp"/>
+
+        </LinearLayout>
+
+        <DatePicker
+            android:datePickerMode="spinner"
+            android:calendarViewShown="false"
+            android:startYear="2015"
+            android:layout_width="match_parent"
+            android:layout_weight="5.34"
+            android:layout_height="0dp"
+            android:id="@+id/editTextSearchDate"
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Select data to be sorted by:"
+            />
+
+        <RadioGroup
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <RadioGroup
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <RadioButton
+                        android:id="@+id/radioSortCost"
+                        android:checked="true"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Sort by cost"
+                        android:onClick="refreshResults"
+                        />
+                    <RadioButton
+                        android:id="@+id/radioSortTime"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Sort by time"
+                        android:onClick="refreshResults"
+                        />
+                </RadioGroup>
+            </LinearLayout>
+            <CheckBox
+                android:id="@+id/checkboxDirect"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="refreshResults"
+                android:text="No stops"
+                />
+        </RadioGroup>
+        <android.support.v7.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/searchResultsRecyclerView">
+
+        </android.support.v7.widget.RecyclerView>
+    </RadioGroup>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/fab_margin"
+        android:src="@android:drawable/ic_menu_search"
+        app:layout_anchor="@id/editTextSearchOrigin"
+        app:layout_anchorGravity="bottom|end"
+        android:onClick="onSearchFlightsClicked"/>
+
+
+
+</android.support.design.widget.CoordinatorLayout>
