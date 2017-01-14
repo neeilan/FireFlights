@@ -1,0 +1,45 @@
+<head>
+    <meta name=viewport content="width=device-width, initial-scale=1">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <script
+      src="https://code.jquery.com/jquery-2.2.4.min.js"
+      integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+      crossorigin="anonymous"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.6.2/firebase.js"></script>
+    <script src = "./script.js"></script>
+</head>
+<body>
+    <div class = "container">
+        <h2>CSCB07 Course Project</h2>
+        <h4>Admin file upload</h4>
+        <div id = "signInDiv">
+        <input id = "email" type = "text" placeholder="Admin email"/>
+        <input id = "password" type = "password" placeholder="Password"></input>
+        <br/>
+        <button class = "btn btn-default" id = "signIn">Sign in</button>
+        </div>
+        <div class = "col-xs-10 col-sm-10 col-xs-offset-1 col-sm-offset-1" id = "uploadsDiv" style="display:none; text-align:center;">
+            <form id="userForm" action="/users" method="post" enctype="multipart/form-data">
+                <div>
+                    <label class="btn btn-default">
+                        <input type="file" name="file" accept=".txt, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel" style="display:none;">Select .txt file with user info
+                    </label>
+                </div>
+                <br/>
+                    <button type="submit" class="btn btn-primary btn-sm">Save users</button>
+            </form>
+            <hr/>
+            <form id="flightForm" action="/flights" method="post" enctype="multipart/form-data">
+                <div>
+                    <label class="btn btn-default">
+                        <input type="file" name="file" accept=".txt, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel" style="display:none;">Select .txt file with flight info
+                    </label>
+
+                </div>
+                 <br/>
+                <button type="submit" class="btn btn-primary btn-sm">Save flights</button>
+            </form>
+        </div>
+    </div>
+</body>
